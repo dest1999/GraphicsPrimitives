@@ -24,6 +24,7 @@ namespace GraphicsPrimitives
             this.Radius = Radius;
             this.FigureColor = FigureColor;
             this.BorderColor = BorderColor;
+            SetCenterPoint();
         }
 
         public override void Draw(Graphics graphics)
@@ -45,6 +46,11 @@ namespace GraphicsPrimitives
             {
                 return false;
             }
+        }
+
+        protected override void SetCenterPoint()
+        {
+            centerPoint = Center;
         }
     }
 }

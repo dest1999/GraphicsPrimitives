@@ -24,17 +24,19 @@ namespace GraphicsPrimitives
 
             circle.Draw(gr);
 
-            Rectangle rectangle = new(new Point(100, 100), 30, 20)
+            Rectangle rectangle = new(new Point(200, 300), 30, 20)
             {
                 BorderColor = Color.Brown,
                 FigureColor = Color.Aqua,
             };
             rectangle.Draw(gr);
 
-            Triangle triangle = new(new Point(50,40), 40, Color.Blue, Color.AliceBlue);
+            Triangle triangle = new(new Point(300, 200), 40, Color.Blue, Color.DeepSkyBlue);
             triangle.Draw(gr);
 
-
+            circle.LinkTo(rectangle, gr);
+            triangle.LinkTo(rectangle, gr);
+            circle.LinkTo(triangle, gr);
         }
 
     }

@@ -35,6 +35,7 @@ namespace GraphicsPrimitives
             };
             this.FigureColor = FigureColor;
             this.BorderColor = BorderColor;
+            SetCenterPoint();
         }
 
         public override bool IsPointBelongFigure(Point point)
@@ -57,6 +58,11 @@ namespace GraphicsPrimitives
             Pen pen = new(BorderColor);
             graphics.DrawPolygon(pen, vertexCoords);
 
+        }
+
+        protected override void SetCenterPoint()
+        {
+            centerPoint = new Point(TopLeft.X + Width / 2, TopLeft.Y + Height / 2);
         }
     }
 }
