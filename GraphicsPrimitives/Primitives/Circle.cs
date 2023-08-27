@@ -11,12 +11,11 @@ namespace GraphicsPrimitives
         public Point Center { get; set; } = new Point(0, 0);
         public int Radius { get; set; } = 0;
         
-        public Circle() { }
+        public Circle() : this(new Point(0, 0), 0, Color.Black, Color.Black) { }
 
-        public Circle(Point Center, int Radius)
+        public Circle(Point Center, int Radius) : this(Center, Radius, Color.Black, Color.Black)
         {
-            this.Center = Center;
-            this.Radius = Radius;
+
         }
 
         public Circle(Point Center, int Radius, Color FigureColor, Color BorderColor)
@@ -37,7 +36,15 @@ namespace GraphicsPrimitives
 
         public override bool IsPointBelongFigure(Point point)
         {
-            throw new NotImplementedException();
+            var pointToCenterDistance = Math.Sqrt(Math.Pow((point.X - Center.X), 2) + Math.Pow((point.Y - Center.Y), 2));
+            if (Radius > pointToCenterDistance)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -31,6 +31,9 @@ namespace GraphicsPrimitives
             };
             rectangle.Draw(gr);
 
+            Triangle triangle = new(new Point(50,40), 40, Color.Blue, Color.AliceBlue);
+            triangle.Draw(gr);
+
 
         }
 

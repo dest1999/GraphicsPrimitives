@@ -9,29 +9,16 @@ namespace GraphicsPrimitives
 {
     internal class Rectangle : AbstractFigure
     {
-        public int Width { get; set; } = 0;
-        public int Height { get; set; } = 0;
-        public Point TopLeft { get; set; } = new Point(0, 0);
-        public Point BottomRight { get; set; } = new Point(0, 0);
+        public int Width { get; set; }
+        public int Height { get; set; }
+        public Point TopLeft { get; set; }
+        public Point BottomRight { get; set; }
 
         private Point[] vertexCoords;
 
-        public Rectangle() { }
+        public Rectangle() : this(new Point(0,0), 0, 0, Color.Black, Color.Black) { }
 
-        public Rectangle(Point TopLeft, int Width, int Height)
-        {
-            this.TopLeft = TopLeft;
-            this.Height = Height;
-            this.Width = Width;
-            BottomRight = new Point(Width + TopLeft.X, Height + TopLeft.Y);
-            vertexCoords = new[]
-            {
-                TopLeft,
-                new Point(TopLeft.X + Width, TopLeft.Y),
-                BottomRight,
-                new Point(TopLeft.X, Height + TopLeft.Y),
-            };
-        }
+        public Rectangle(Point TopLeft, int Width, int Height) : this(TopLeft, Width, Height, Color.Black, Color.Black) { }
 
         public Rectangle(Point TopLeft, int Width, int Height, Color FigureColor, Color BorderColor)
         {
